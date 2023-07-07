@@ -1,0 +1,89 @@
+ion-header {
+    ion-toolbar {
+      --background: linear-gradient(to left, #eaafc8, #654ea3); 
+      --color: #ffffff; // Color del texto del encabezado
+    }
+  }
+  
+  ion-content {
+    background: #654ea3; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #eaafc8, #654ea3); /* Chrome 10-25, Safari 5.1-6 */
+    --background: linear-gradient(to left, #eaafc8, #654ea3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ // Color de fondo del contenido
+  }
+  
+  ion-card {
+    background-color: #ffffff; // Color de fondo del card
+    border-radius: 10px;
+    padding: 16px;
+    width: 80%;
+    max-width: 330px;
+    margin: auto;
+    margin-top: 40px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.08); /* Agregamos una sombra más pronunciada */
+  }
+  
+  
+  ion-item {
+    --ion-color-primary: #6c63ff; // Color del texto y el borde del input
+  }
+  
+  ion-button {
+    --background: #6c63ff; // Color de fondo del botón
+    --color: #ffffff; // Color del texto del botón
+  
+    &.ion-color-clear {
+      --color: #6c63ff; // Color del texto del botón transparente
+    }
+  }
+  .app-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .social-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    height: 70%; /* Opcional: Ajusta la altura del contenedor */
+  }
+  
+  .social-login-label {
+    margin-bottom: 10px; /* Espacio inferior entre la etiqueta y los botones */
+  }
+  
+  .social-login-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar horizontalmente */
+    justify-content: center; /* Centrar verticalmente */
+    margin-top: 10px; /* Espacio superior entre la etiqueta y los botones */
+  }
+  
+ .google-button,
+.facebook-button{
+  width: 200px;
+}
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+.separator {
+  height: 20px; /* Espacio entre los botones */
+}
+.login-button {
+    width: 230px;
+  }
+
+.register-button {
+    width: 230px;
+  margin-bottom: 10px;
+  font-size: 14px; /* Tamaño de fuente del botón "Registrarse" */
+}
+
+.forgot-password {
+  font-size: 12px; /* Tamaño de fuente del enlace "¿Olvidaste tu contraseña?" */
+}
+  
+  

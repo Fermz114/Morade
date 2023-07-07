@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="app-title">Morade</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Resto del contenido -->
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Correo electrónico</ion-label>
+        <ion-input type="email" [(ngModel)]="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+
+      <div class="button-container ion-text-center">
+        <div class="separator"></div>
+        <ion-button class="login-button" (click)="login()">Iniciar sesión</ion-button>
+        <ion-button class="register-button" expand="full">Registrarse</ion-button>
+        
+        <div class="forgot-password">
+          <a href="#" (click)="forgotPassword()">¿Olvidaste tu contraseña?</a>
+        </div>
+      </div>
+      
+    </ion-card-content>
+  </ion-card>
+
+  <div class="social-login">
+    <p class="social-login-label">O inicia sesión con:</p>
+    <div class="social-login-buttons">
+      <ion-button class="google-button" (click)="loginWithGoogle()">
+        <ion-icon name="logo-google"></ion-icon>
+        Google
+      </ion-button>
+
+      <ion-button class="facebook-button" (click)="loginWithFacebook()">
+        <ion-icon name="logo-facebook"></ion-icon>
+        Facebook
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

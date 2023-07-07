@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <ion-icon slot="icon-only" name="menu"></ion-icon> <!-- Icono para abrir el menú de navegación -->
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title slot="end">Administrar Usuarios</ion-title> <!-- Título del encabezado a la derecha -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Información de Usuarios</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let user of users" (click)="openPermissions(user)">
+          <ion-label>{{ user.name }}</ion-label>
+          <ion-label>{{ user.email }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+    <ion-content>
+      <ion-button (click)="openPermissions(selectedUser)">Abrir Permisos</ion-button>    </ion-content>
+    
+  </ion-card>
+</ion-content>
+
