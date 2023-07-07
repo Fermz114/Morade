@@ -1,8 +1,16 @@
-ion-header {
-    ion-toolbar {
-      --background: linear-gradient(to left, #eaafc8, #654ea3); 
-      --color: #ffffff;
-    }
+
+  
+  .menu-title {
+    color: #ffffff; /* Color del título del menú */
+  }
+  
+  .menu-button {
+    color: #ffffff; /* Color del texto de los botones del menú */
+    background-color: #6c63ff; /* Color de fondo de los botones del menú */
+  }
+  
+  .menu-content {
+    background-color: #f0e6ff; /* Color de fondo del contenido del menú */
   }
   
   ion-content {
