@@ -24,22 +24,36 @@
   </ion-content>
 </ion-menu>
 
-<ion-content>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Información de Usuarios</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list>
-        <ion-item *ngFor="let user of users" (click)="openPermissions(user)">
-          <ion-label>{{ user.name }}</ion-label>
-          <ion-label>{{ user.email }}</ion-label>
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-    <ion-content>
-      <ion-button (click)="openPermissions(selectedUser)">Abrir Permisos</ion-button>    </ion-content>
-    
-  </ion-card>
-</ion-content>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar class="custom-header">
+      <ion-buttons slot="start">
+        <ion-menu-button color="light"></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Información de Usuarios</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item *ngFor="let user of users" (click)="openPermissions(user)">
+            <ion-label>{{ user.name }}</ion-label>
+            <ion-label>{{ user.email }}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+      <ion-content>
+        <ion-button (click)="openPermissions(selectedUser)">Abrir Permisos</ion-button>    </ion-content>
+      
+    </ion-card>
+  </ion-content>
+  
+</div>
+
 
