@@ -54,7 +54,12 @@ ion-content.page-background {
         --background: -webkit-linear-gradient(to right, #4e2c64, #203A43, #1d0f27);
     }
   }
-  
+  ion-header {
+    ion-toolbar {
+      --background: linear-gradient(to left, #eaafc8, #654ea3); 
+      --color: #ffffff;
+    }
+  }
   
   
   

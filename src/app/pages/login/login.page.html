@@ -22,13 +22,14 @@
 
       <div class="button-container ion-text-center">
         <div class="separator"></div>
-        <ion-button class="login-button" [routerLink]="['/pagos'] ">Iniciar sesión</ion-button>
-        <ion-button class="register-button" expand="full" [routerLink]="['/registro'] ">Registrarse</ion-button>
-        
+        <ion-button class="login-button" (click)="login()">Iniciar sesión</ion-button>
+        <ion-button class="register-button" expand="full" [routerLink]="['/registro']">Registrarse</ion-button>
+      
         <div class="forgot-password">
           <a href="#" (click)="forgotPassword()">¿Olvidaste tu contraseña?</a>
         </div>
       </div>
+      
       
     </ion-card-content>
   </ion-card>

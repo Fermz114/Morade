@@ -85,4 +85,6 @@ ion-header {
   font-size: 12px; /* Tamaño de fuente del enlace "¿Olvidaste tu contraseña?" */
 }
   
-  
+ion-spinner.show-spinner {
+  display: block !important; // Muestra el spinner
+}

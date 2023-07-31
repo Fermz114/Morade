@@ -5,22 +5,19 @@
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding menu-content">
-    <ion-button expand="full" fill="clear">
+    <ion-button expand="full" fill="clear" [routerLink]="['/acceso']">
       <ion-icon name="home" slot="start"></ion-icon>
-      Option 1
+      Inicio
     </ion-button>
-    <ion-button expand="full" fill="clear">
+    <ion-button expand="full" fill="clear" [routerLink]="['/']">
       <ion-icon name="star" slot="start"></ion-icon>
-      Option 2
+      Informes y Avisos
     </ion-button>
-    <ion-button expand="full" fill="clear">
+    <ion-button expand="full" fill="clear" [routerLink]="['/usuarios']">
       <ion-icon name="settings" slot="start"></ion-icon>
-      Option 3
+      Usuarios
     </ion-button>
-    <ion-button expand="full" fill="clear">
-      <ion-icon name="person" slot="start"></ion-icon>
-      Option 4
-    </ion-button>
+    
   </ion-content>
 </ion-menu>
 
