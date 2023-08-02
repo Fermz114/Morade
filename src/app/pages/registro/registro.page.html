@@ -30,7 +30,7 @@
           <ion-input type="password" formControlName="contraseña"></ion-input>
         </ion-item>
         <div padding-top>
-          <ion-button expand="full" type="submit" [disabled]="registroForm.invalid">Registrarse</ion-button>
+          <ion-button class="register-button" expand="full" [routerLink]="['/acceso']">Registrarse</ion-button>
         </div>
       </form>
     </ion-card-content>

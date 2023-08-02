@@ -1,42 +1,74 @@
 ion-content.page-background {
-    --ion-background-color: transparent;
-    background: #654ea3; 
-    background: -webkit-linear-gradient(to right, #eaafc8, #654ea3);
-    background: linear-gradient(to left, #eaafc8, #654ea3);
-  }
+  --ion-background-color: transparent;
+  background: #654ea3; 
+  background: -webkit-linear-gradient(to right, #eaafc8, #654ea3);
+  background: linear-gradient(to left, #eaafc8, #654ea3);
+}
 
 ion-header {
-    ion-toolbar {
-      --background: linear-gradient(to left, #eaafc8, #654ea3); 
-      --color: #ffffff;
-    }
+  ion-toolbar {
+    --background: linear-gradient(to left, #eaafc8, #654ea3); 
+    --color: #ffffff;
   }
+}
 
-  ion-title {
-    font-size: 24px;
-    color: white;
-    font-weight: bold;
-    margin-left: auto;
-  }  
+ion-title {
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+  margin-left: auto;
+}  
 
-  .image-button {
-    --background: transparent;
-    --padding-start: 0;
-    --padding-end: 0;
-    box-shadow: none;
-    height: 100px;
-  }
-  
-  ion-button{
-    --background: white;
-    --color: #654ea3;
-    --border-radius: 5px;
-  }
+.image-button {
+  --background: transparent;
+  --padding-start: 0;
+  --padding-end: 0;
+  box-shadow: none;
+  height: 100px;
+}
 
-  .access-title {
-    margin-left: auto;
-    margin-right: 16px;
-    font-size: 16px;
-    font-weight: bold;
-  }
-  
+ion-button{
+  --background: white;
+  --color: #654ea3;
+  --border-radius: 5px;
+}
+
+.text-center{
+  color: white;
+  position: center;
+}
+
+.access-title {
+  margin-left: auto;
+  margin-right: 16px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.transparent-toolbar {
+  --background: transparent;
+  --color: white;
+  position: center;
+}
+
+.status-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+  position: absolute;
+  top: 36px;
+  right: 20px;
+}
+
+.green {
+  background-color: rgb(79, 199, 79);
+}
+
+.green:hover {
+  background-color: yellow;
+}
+
+.green:active {
+  background-color: red;
+}
