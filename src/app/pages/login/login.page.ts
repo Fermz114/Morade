@@ -1,48 +1,57 @@
+// login.page.ts
+
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
+import { HttpClient } from '@angular/common/http';
+
+interface LoginResponse {
+  success: boolean;
+  message: string;
+}
 
 @Component({
   selector: 'app-login',
-  templateUrl: 'login.page.html',
-  styleUrls: ['login.page.scss'],
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
 })
 export class LoginPage {
-  email: string = '';
-  password: string = '';
-  showSpinner: boolean = false;
+  usuario = {
+    email: '',
+    password: '',
+  };
 
-  constructor(private router: Router, private loadingController: LoadingController) {}
+  constructor(private router: Router, private http: HttpClient) {}
 
-  async login() {
-    this.showSpinner = true; // Activar el spinner al presionar el botón
-  
-    const loading = await this.loadingController.create({
-      message: 'Cargando...',
-      spinner: 'crescent',
-    });
-  
-    await loading.present();
-  
-    setTimeout(() => {
-      this.showSpinner = false; // Desactivar el spinner
-      loading.dismiss();
-      this.router.navigate(['/acceso']);
-    }, 2000);
-  }
-  
+  authenticate() {
+    // Verifica si los campos de correo electrónico y contraseña están llenos
+    if (this.usuario.email.trim() === '' || this.usuario.password.trim() === '') {
+      console.log('Por favor, completa todos los campos');
+      return; // Detiene el inicio de sesión si los campos no están llenos
+    }
 
-  forgotPassword() {
-    // Aquí puedes implementar la lógica para la recuperación de contraseña
-    // Puedes mostrar un formulario de recuperación de contraseña o redirigir a una página específica
-    this.router.navigate(['/forgot-password']);
-  }
+    console.log('');
+    const data = {
+      email: this.usuario.email,
+      password: this.usuario.password,
+    };
 
-  loginWithGoogle() {
-    // Implementa la lógica de inicio de sesión con Google aquí
-  }
-
-  loginWithFacebook() {
-    // Implementa la lógica de inicio de sesión con Facebook aquí
+    this.http.post<LoginResponse>('http://localhost:3000/login', data).subscribe(
+      (response) => {
+        console.log('Respuesta del servidor:', response);
+        if (response.success) {
+          console.log('Inicio de sesión con éxito');
+          // Aquí puedes redirigir al usuario a la página de inicio de sesión exitosa o mostrar un mensaje.
+          this.router.navigate(['/acceso']);
+        } else {
+          console.log('Usuario y/o contraseña incorrecta');
+          // Aquí puedes mostrar un mensaje de error al usuario.
+        }
+      },
+      (error) => {
+        console.error('Error en la solicitud:', error);
+        // Aquí puedes mostrar un mensaje de error al usuario.
+      }
+    );
   }
 }
+

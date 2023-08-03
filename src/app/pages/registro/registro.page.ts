@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -7,20 +8,25 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./registro.page.scss'],
 })
 export class RegistroPage {
-  registroForm: FormGroup;
+  constructor(private router: Router, private http: HttpClient) { }
 
-  constructor(private formBuilder: FormBuilder) {
-    this.registroForm = this.formBuilder.group({
-      nombre: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      contraseña: ['', [Validators.required, Validators.minLength(6)]],
-    });
-  }
+  user: { username: string; email: string; password: string } = { username: '', email: '', password: '' };
 
-  submitRegistroForm() {
-    if (this.registroForm.valid) {
-      console.log(this.registroForm.value);
-      // Aquí puedes agregar la lógica para enviar los datos del formulario al servidor
-    }
+  registro() {
+    console.log('Cargando registro');
+
+    this.http.post('http://localhost:3000/registro', this.user).subscribe(
+      (response) => {
+        console.log(response);
+        // Aquí puedes agregar lógica adicional, como mostrar un mensaje de éxito o redirigir al usuario a otra página.
+      },
+      (error) => {
+        console.error(error);
+        // Aquí puedes agregar lógica adicional para manejar errores, como mostrar un mensaje de error al usuario.
+      }
+    );
+
+    // Redirige al usuario a la página de inicio de sesión después de enviar el formulario.
+    this.router.navigate(['../login']);
   }
 }
