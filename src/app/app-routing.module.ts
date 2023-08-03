@@ -40,7 +40,7 @@ const routes: Routes = [
     path: 'acceso',
     loadChildren: () => import('./pages/acceso/acceso.module').then( m => m.AccesoPageModule)
   },
-
+  
 ];
 
 @NgModule({
