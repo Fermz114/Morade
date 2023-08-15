@@ -14,7 +14,7 @@ mongoose.connect('mongodb://localhost:27017/morade', {
 });
 
 const User = mongoose.model('User', {
-  name: String,
+  username: String,
   email: String,
   password: String,
 });
@@ -35,11 +35,11 @@ async function authenticateUser(email, password) {
 
 // Ruta para el registro de usuarios
 app.post('/registro', async (req, res) => {
-  const { name, email, password } = req.body;
+  const { username, email, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
 
   const newUser = new User({
-    name,
+    username,
     email,
     password: hashedPassword,
   });
