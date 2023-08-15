@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class RegistroPage {
   constructor(private router: Router, private http: HttpClient) { }
 
-  user: { username: string; email: string; password: string } = { username: '', email: '', password: '' };
+  user: { name: string; email: string; password: string;  confirmPassword: string } = { name: '', email: '', password: '', confirmPassword: '' };
 
   registro() {
     console.log('Cargando registro');
@@ -18,11 +18,19 @@ export class RegistroPage {
     this.http.post('http://localhost:3000/registro', this.user).subscribe(
       (response) => {
         console.log(response);
+        // Aquí puedes agregar lógica adicional, como mostrar un mensaje de éxito o redirigir al usuario a otra página.
       },
       (error) => {
         console.error(error);
+        // Aquí puedes agregar lógica adicional para manejar errores, como mostrar un mensaje de error al usuario.
       }
     );
+
+    // Redirige al usuario a la página de inicio de sesión después de enviar el formulario.
     this.router.navigate(['../login']);
+  }
+  
+  arePasswordsMatching() {
+    return this.user.password === this.user.confirmPassword;
   }
 }
