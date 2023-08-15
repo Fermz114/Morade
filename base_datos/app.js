@@ -1,11 +1,14 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const bcrypt = require('bcrypt');
-const cors = require('cors');
 
-const app = express();
-const port = 3000;
+//Importación de modulos
+const express = require('express'); //Framework web que facilita la creación de API y rutas.
+const mongoose = require('mongoose'); //Biblioteca de MongoDB para la base de datos.
+const bodyParser = require('body-parser'); //Middleware para analizar las solicitudes entrantes.
+const bcrypt = require('bcrypt'); // Biblioteca para el cifrado de contraseñas.
+const cors = require('cors'); // Middleware para habilitar el manejo de solicitudes cruzadas
+
+//Configuración inicial del servidor
+const app = express(); //Se crea una instancia de la aplicación Express
+const port = 3000; //Se establece el número de puerto en el que el servidor escuchará
 
 // Conectar a la base de datos MongoDB
 mongoose.connect('mongodb://localhost:27017/morade', {
@@ -13,6 +16,7 @@ mongoose.connect('mongodb://localhost:27017/morade', {
   useUnifiedTopology: true,
 });
 
+//Conexión a la base de datos MongoDB
 const User = mongoose.model('User', {
   name: String,
   email: String,
@@ -24,13 +28,19 @@ app.use(cors());
 
 // Método para verificar las credenciales y autenticar al usuario
 async function authenticateUser(email, password) {
-  const user = await User.findOne({ email });
-
+  const user = await User.findOne({ email }); //se busca en la base de datos un documento de usuario 
+  //que coincida con el correo electrónico proporcionado. 
+//La función User.findOne busca en la colección de usuarios (User) un documento que tenga el campo 
+  //email igual al valor de email pasado como argumento. Debido a que User.findOne devuelve una 
+  //promesa, se utiliza await para esperar hasta que la búsqueda se complete antes de continuar.
   if (user && (await bcrypt.compare(password, user.password))) {
+    //se utiliza await para esperar hasta que la búsqueda se complete antes de continuar.
     return true;
   }
 
   return false;
+  //se verifica si la búsqueda de usuario arrojó un resultado válido. Si no se encontró 
+  //un usuario con el correo electrónico proporcionado, la verificación falla y la función devuelve false.
 }
 
 // Ruta para el registro de usuarios

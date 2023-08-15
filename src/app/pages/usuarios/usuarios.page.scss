@@ -1,14 +1,15 @@
 ion-header {
-    ion-toolbar {
-      --background: linear-gradient(to left, #eaafc8, #654ea3); 
-      --color: #ffffff;
-    }
+  ion-toolbar {
+    --background: linear-gradient(to left, #eaafc8, #654ea3); 
+    --color: #ffffff; // Color del texto del encabezado
   }
-  
- // ion-content {
-  //  --background: linear-gradient(to left, #eaafc8, #654ea3); 
-  //}
-  
+}
+
+ion-content {
+  background: #654ea3; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #eaafc8, #654ea3); /* Chrome 10-25, Safari 5.1-6 */
+  --background: linear-gradient(to left, #eaafc8, #654ea3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ // Color de fondo del contenido
+}
   ion-card {
     background-color: #ffffff;
     border-radius: 8px;
@@ -28,3 +29,6 @@ ion-header {
     --ion-text-color: #000000;
   }
   
+.white-text-button {
+  color: white;
+}

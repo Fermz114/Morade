@@ -7,13 +7,15 @@
 </ion-header>
 
 <ion-content>
-  <!-- Agrega un formulario y vincúlalo a la función authenticate() usando (ngSubmit) -->
+  <!--  utiliza la directiva (ngSubmit) para escuchar el evento de envío del formulario y 
+    llamar a la función authenticate() -->
   <form (ngSubmit)="authenticate()">
     <ion-card>
       <ion-card-content>
         <!-- Vincula los campos de entrada con las propiedades del componente usando [(ngModel)] -->
         <ion-item>
           <ion-label position="floating">Correo electrónico</ion-label>
+        <!-- ngModel se utiliza para enlazar el valor del campo de entrada con sus propiedades y componentes"-->
           <ion-input type="email" [(ngModel)]="usuario.email" name="email" required></ion-input>
         </ion-item>
 
