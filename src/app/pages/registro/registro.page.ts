@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class RegistroPage {
   constructor(private router: Router, private http: HttpClient) { }
 
-  user: { username: string; email: string; password: string } = { username: '', email: '', password: '' };
+  user: { name: string; email: string; password: string;  confirmPassword: string } = { name: '', email: '', password: '', confirmPassword: '' };
 
   registro() {
     console.log('Cargando registro');
@@ -24,5 +24,9 @@ export class RegistroPage {
       }
     );
     this.router.navigate(['../login']);
+  }
+  
+  arePasswordsMatching() {
+    return this.user.password === this.user.confirmPassword;
   }
 }

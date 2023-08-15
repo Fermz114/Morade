@@ -1,25 +1,20 @@
 ion-header {
   ion-toolbar {
-    --background: linear-gradient(to right, #eaafc8, #654ea3); 
-    --color: #ffffff;
+    --background: linear-gradient(to left, #eaafc8, #654ea3); 
+    --color: #ffffff; // Color del texto del encabezado
   }
+}
+
+ion-content {
+  background: #654ea3; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #eaafc8, #654ea3); /* Chrome 10-25, Safari 5.1-6 */
+  --background: linear-gradient(to left, #eaafc8, #654ea3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ // Color de fondo del contenido
 }
 
 ion-title {
   font-size: 24px;
   color: white;
   font-weight: bold;
-}
-
-
-ion-content.page-background {
-  --ion-background-color: transparent;
-  background: #654ea3;
-  background: -webkit-linear-gradient(to right, #eaafc8, #654ea3);
-  background: linear-gradient(to right, #eaafc8, #654ea3);
-  color: black;
-  display: flex;
-  justify-content: center;
 }
 
 ion-card {

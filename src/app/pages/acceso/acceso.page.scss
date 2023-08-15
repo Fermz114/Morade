@@ -12,7 +12,7 @@ ion-header {
   }
 }
 
-ion-title {
+.ion-title {
   font-size: 24px;
   color: white;
   font-weight: bold;
@@ -27,7 +27,7 @@ ion-title {
   height: 100px;
 }
 
-ion-button{
+.ion-button{
   --background: white;
   --color: #654ea3;
   --border-radius: 5px;
@@ -49,26 +49,4 @@ ion-button{
   --background: transparent;
   --color: white;
   position: center;
-}
-
-.status-circle {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  transition: background-color 0.3s;
-  position: absolute;
-  top: 36px;
-  right: 20px;
-}
-
-.green {
-  background-color: rgb(79, 199, 79);
-}
-
-.green:hover {
-  background-color: yellow;
-}
-
-.green:active {
-  background-color: red;
 }
