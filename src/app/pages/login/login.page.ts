@@ -23,13 +23,11 @@ export class LoginPage {
   constructor(private router: Router, private http: HttpClient) {}
 
   authenticate() {
-    // Verifica si los campos de correo electrónico y contraseña están llenos
     if (this.usuario.email.trim() === '' || this.usuario.password.trim() === '') {
       console.log('Por favor, completa todos los campos');
-      return; // Detiene el inicio de sesión si los campos no están llenos
+      return; 
     }
 
-    console.log('');
     const data = {
       email: this.usuario.email,
       password: this.usuario.password,
@@ -40,16 +38,13 @@ export class LoginPage {
         console.log('Respuesta del servidor:', response);
         if (response.success) {
           console.log('Inicio de sesión con éxito');
-          // Aquí puedes redirigir al usuario a la página de inicio de sesión exitosa o mostrar un mensaje.
           this.router.navigate(['/acceso']);
         } else {
           console.log('Usuario y/o contraseña incorrecta');
-          // Aquí puedes mostrar un mensaje de error al usuario.
         }
       },
       (error) => {
         console.error('Error en la solicitud:', error);
-        // Aquí puedes mostrar un mensaje de error al usuario.
       }
     );
   }
