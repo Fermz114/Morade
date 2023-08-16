@@ -39,7 +39,7 @@
     <br>
     <ion-row>
       <ion-col size="6">
-        <ion-button shape="square" class="image-button">
+        <ion-button shape="square" class="image-button" (click)="cambiarEstadoPuerta()">
           <ion-img src="assets/images/puerta-de-salida.png" slot="icon-only"></ion-img>
           <div class="text-center">Residentes</div>
         </ion-button>
@@ -83,7 +83,7 @@
     <br>
     <ion-row>
       <ion-col size="12" class="text-center">
-        <ion-button expand="full" class="ion-button">Generar</ion-button>
+        <ion-button expand="full" class="ion-button" (click)="Generartoken()">Generar</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

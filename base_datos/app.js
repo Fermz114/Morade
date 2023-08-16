@@ -17,6 +17,7 @@ const User = mongoose.model('User', {
   name: String,
   email: String,
   password: String,
+  residencia: String,
 });
 
 app.use(bodyParser.json());
@@ -35,13 +36,14 @@ async function authenticateUser(email, password) {
 
 // Ruta para el registro de usuarios
 app.post('/registro', async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, residencia } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
 
   const newUser = new User({
     name,
     email,
     password: hashedPassword,
+    residencia,
   });
 
   try {
@@ -66,6 +68,37 @@ app.post('/login', async (req, res) => {
     }
   } catch (error) {
     res.status(500).send('Error en el inicio de sesión');
+  }
+});
+
+app.get('/usuarios', async (req, res) => {
+  try {
+    const users = await User.find({}, 'name email'); // Obtener solo los campos de nombre y correo
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(500).send('Error al obtener la lista de usuarios');
+  }
+});
+
+// Ruta para la solicitud de recuperación de contraseña
+app.post('/olvido', async (req, res) => {
+  const { email, newPassword } = req.body;
+  const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+  try {
+    const user = await User.findOneAndUpdate(
+      { email },
+      { password: hashedPassword },
+      { new: true }
+    );
+
+    if (user) {
+      res.status(200).json({ success: true, message: 'Contraseña actualizada exitosamente' });
+    } else {
+      res.status(404).json({ success: false, message: 'Usuario no encontrado' });
+    }
+  } catch (error) {
+    res.status(500).send('Error al actualizar la contraseña');
   }
 });
 
