@@ -40,6 +40,10 @@ const routes: Routes = [
     path: 'acceso',
     loadChildren: () => import('./pages/acceso/acceso.module').then( m => m.AccesoPageModule)
   },
+  {
+    path: 'olvido',
+    loadChildren: () => import('./pages/olvido/olvido.module').then( m => m.OlvidoPageModule)
+  },
   
 ];
 

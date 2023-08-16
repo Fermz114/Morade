@@ -5,18 +5,18 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AccesoPageRoutingModule } from './acceso-routing.module';
+import { OlvidoPageRoutingModule } from './olvido-routing.module';
 
-import { AccesoPage } from './acceso.page';
+import { OlvidoPage } from './olvido.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AccesoPageRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    OlvidoPageRoutingModule
   ],
-  declarations: [AccesoPage]
+  declarations: [OlvidoPage]
 })
-export class AccesoPageModule {}
+export class OlvidoPageModule {}

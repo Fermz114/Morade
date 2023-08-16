@@ -17,12 +17,10 @@
     </ion-card-header>
     <ion-card-content>
       <form>
-        <ion-toolbar class="transparent-toolbar" style="display: flex; align-items: center; color: black;">
-          <ion-select placeholder="Selecciona tu residencial">
-            <ion-select-option value="opcion2">Misión de los lagos</ion-select-option>
-            <ion-select-option value="opcion3">Gardeno</ion-select-option>
-          </ion-select>
-        </ion-toolbar>
+        <ion-item>
+          <ion-label position="floating">Ingrese su residencia</ion-label>
+          <ion-input type="" [(ngModel)]="user.residencia" name="residencia"></ion-input>
+        </ion-item>    
         <ion-item>
           <ion-label position="floating">Nombre</ion-label>
           <ion-input type="" [(ngModel)]="user.name" name="name"></ion-input>
