@@ -1,3 +1,24 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding menu-content">
+    <ion-button expand="full" fill="clear" [routerLink]="['/acceso']">
+      <ion-icon name="home" slot="start"></ion-icon>
+      Inicio
+    </ion-button>
+    <ion-button expand="full" fill="clear" [routerLink]="['/']">
+      <ion-icon name="star" slot="start"></ion-icon>
+      Informes
+    </ion-button>
+    <ion-button expand="full" fill="clear" [routerLink]="['/usuarios']">
+      <ion-icon name="settings" slot="start"></ion-icon>
+      Usuarios
+    </ion-button>
+  </ion-content>
+</ion-menu>
 <ion-content>
   <!-- Contenido de la página "user-permissions" -->
   <ion-list>

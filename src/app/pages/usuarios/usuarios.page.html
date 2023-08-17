@@ -9,18 +9,12 @@
       <ion-icon name="home" slot="start"></ion-icon>
       Inicio
     </ion-button>
-    <ion-button expand="full" fill="clear" [routerLink]="['/']" class="white-text-button">
-      <ion-icon name="star" slot="start"></ion-icon>
-      Informes y Avisos
-    </ion-button>
-    <ion-button expand="full" fill="clear" [routerLink]="['/usuarios']" class="white-text-button">
+    <ion-button expand="full" fill="clear" [routerLink]="['/usuarios']">
       <ion-icon name="settings" slot="start"></ion-icon>
       Usuarios
     </ion-button>
   </ion-content>
 </ion-menu>
-
-
 <div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar class="custom-header">
@@ -30,8 +24,7 @@
       <ion-title>Usuarios</ion-title>
     </ion-toolbar>
   </ion-header>
-  
-  <ion-content>
+  <ion-content class="page-background">
     <ion-card>
       <ion-card-header>
         <ion-card-title>Información de Usuarios</ion-card-title>
@@ -45,11 +38,8 @@
         </ion-list>
       </ion-card-content>
       <ion-content>
-        <ion-button (click)="openPermissions(selectedUser)">Abrir Permisos</ion-button>    </ion-content>
-      
+        <ion-button (click)="openPermissions(selectedUser)">Abrir Permisos</ion-button>
+      </ion-content>
     </ion-card>
   </ion-content>
-  
 </div>
-
-

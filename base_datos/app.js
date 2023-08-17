@@ -16,7 +16,6 @@ mongoose.connect('mongodb://localhost:27017/morade', {
   useUnifiedTopology: true,
 });
 
-//Conexión a la base de datos MongoDB
 const User = mongoose.model('User', {
   username: String,
   email: String,
@@ -24,6 +23,8 @@ const User = mongoose.model('User', {
   residencia: String,
 });
 
+
+//middleware
 app.use(bodyParser.json());
 app.use(cors());
 

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-registro',
@@ -8,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./registro.page.scss'],
 })
 export class RegistroPage {
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(private router: Router, private http: HttpClient,  private toastController: ToastController) { }
 
   user: {
     name: string;
@@ -22,9 +24,21 @@ export class RegistroPage {
     console.log('Cargando registro');
   
     this.http.post('http://localhost:3000/registro', this.user).subscribe(
-      (response) => {
+      async (response) => {
         console.log(response);
-        // Aquí puedes agregar lógica adicional, como mostrar un mensaje de éxito o redirigir al usuario a otra página.
+  
+        try {
+          const toast = await this.toastController.create({
+            message: 'Registro exitoso. ¡Bienvenido!',
+            duration: 5000, // Duración del mensaje en milisegundos
+            color: 'success',
+            position: 'top'
+          });
+          await toast.present();
+        } catch (error) {
+          console.error(error);
+          // Aquí puedes agregar lógica adicional para manejar errores, como mostrar un mensaje de error al usuario.
+        }
       },
       (error) => {
         console.error(error);
@@ -36,8 +50,8 @@ export class RegistroPage {
     this.router.navigate(['../login']);
   }
   
-  
   arePasswordsMatching() {
     return this.user.password === this.user.confirmPassword;
   }
+  
 }
