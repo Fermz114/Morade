@@ -1,14 +1,16 @@
+ion-content.page-background {
+  --ion-background-color: transparent;
+  background: #654ea3; 
+  background: -webkit-linear-gradient(to right, #eaafc8, #654ea3);
+  background: linear-gradient(to left, #eaafc8, #654ea3);
+}
+
 ion-header {
-    ion-toolbar {
-      --background: linear-gradient(to left, #eaafc8, #654ea3); 
-      --color: #ffffff;
-    }
+  ion-toolbar {
+    --background: linear-gradient(to left, #eaafc8, #654ea3); 
+    --color: #ffffff;
   }
-  
- // ion-content {
-  //  --background: linear-gradient(to left, #eaafc8, #654ea3); 
-  //}
-  
+}
   ion-card {
     background-color: #ffffff;
     border-radius: 8px;
@@ -28,3 +30,6 @@ ion-header {
     --ion-text-color: #000000;
   }
   
+.white-text-button {
+  color: white;
+}
